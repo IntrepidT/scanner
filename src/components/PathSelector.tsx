@@ -1,6 +1,13 @@
 import { open } from '@tauri-apps/plugin-dialog';
 import { homeDir } from '@tauri-apps/api/path';
 
+type Props = {
+  path: string;
+  setPath: React.Dispatch<React.SetStateAction<string>>;
+  loading: boolean;
+  onScan: () => void;
+}
+
 export default function PathSelector({ path, setPath, loading, onScan }: Props) {
     const handlePickFolder = async () => {
         const selected = await open({
